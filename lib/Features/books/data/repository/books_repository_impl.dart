@@ -1,6 +1,5 @@
 import 'package:book_app/Core/error/failures/failure.dart';
 import 'package:book_app/Core/error/failures/server_failure.dart';
-import 'package:book_app/Core/utils/app_strings.dart';
 import 'package:book_app/Features/books/data/datasource/base_books_remote_datasource.dart';
 import 'package:book_app/Features/books/domain/entities/book.dart';
 import 'package:book_app/Features/books/domain/repository/base_books_repository.dart';
@@ -16,9 +15,6 @@ class BooksRepositoryImpl implements BaseBooksRepository {
   Future<Either<Failure, List<Book>>> getBooks() async {
     try {
       final result = await baseBooksRemoteDatasource.getBooks();
-      if (result.isEmpty) {
-        return Left(ServerFailure(message: AppStrings.noBooksFound));
-      }
       return Right(result);
     } catch (e) {
       return Left(ServerFailure(message: e.toString()));

@@ -9,3 +9,4 @@ const Color textPrimaryDark = Color(0xFFFFFFFF);
 const Color textSecondaryDark = Color(0xFFE0E0E0);
 const Color inputDark = Color(0xFF2A2A2A);
 const Color borderDark = Color(0xFF444444);
+const Color errorDark = Color(0xFFFF0000);

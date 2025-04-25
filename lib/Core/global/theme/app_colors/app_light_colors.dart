@@ -9,3 +9,4 @@ const Color textPrimaryLight = Color(0xFF000000);
 const Color textSecondaryLight = Color(0xFF757575);
 const Color inputLight = Color(0xFFF0F0F0);
 const Color borderLight = Color(0xFFCCCCCC);
+const Color errorLight = Color(0xFFFF0000);

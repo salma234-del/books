@@ -10,6 +10,7 @@ class AppColors {
   final Color textSecondary;
   final Color input;
   final Color border;
+  final Color error;
 
   const AppColors._({
     required this.background,
@@ -19,6 +20,7 @@ class AppColors {
     required this.textSecondary,
     required this.input,
     required this.border,
+    required this.error,
   });
 
   static final AppColors light = AppColors._(
@@ -29,6 +31,7 @@ class AppColors {
     textSecondary: textSecondaryLight,
     input: inputLight,
     border: borderLight,
+    error: errorLight,
   );
 
   static final AppColors dark = AppColors._(
@@ -39,6 +42,7 @@ class AppColors {
     textSecondary: textSecondaryDark,
     input: inputDark,
     border: borderDark,
+    error: errorDark,
   );
 
   static AppColors of(BuildContext context) {

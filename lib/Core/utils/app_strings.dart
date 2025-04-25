@@ -15,4 +15,5 @@ abstract class AppStrings {
   static const String seeMore = 'See more';
   static const String seeLess = 'See less';
   static const String noBooksFound = 'No books found';
+  static const String retry = 'Retry';
 }
