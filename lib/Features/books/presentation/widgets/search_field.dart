@@ -1,3 +1,4 @@
+import 'package:book_app/Core/global/theme/app_theme/app_text_styles.dart';
 import 'package:book_app/Core/utils/app_strings.dart';
 import 'package:book_app/Features/books/presentation/cubits/get_books/get_books_cubit.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,11 @@ class SearchField extends StatelessWidget {
       decoration: InputDecoration(
         isDense: true,
         hintText: AppStrings.searchBooks,
-        suffixIcon: Icon(Icons.search),
+        hintStyle: AppTextStyles.of(context).font14Medium,
+        suffixIcon: Icon(
+          Icons.search,
+          size: 24.sp,
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
         ),

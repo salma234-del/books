@@ -30,6 +30,7 @@ class BookListScreen extends StatelessWidget {
               horizontal: AppSizes.defaultHorizontalPadding),
           child: Column(
             children: [
+              SizedBox(height: 16.h),
               // search bar
               SearchField(),
               SizedBox(height: 24.h),
