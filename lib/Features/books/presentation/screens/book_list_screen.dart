@@ -1,6 +1,5 @@
 import 'package:book_app/Core/services/service_locator.dart';
 import 'package:book_app/Core/utils/app_constants.dart';
-import 'package:book_app/Core/utils/app_sizes.dart';
 import 'package:book_app/Core/utils/app_strings.dart';
 import 'package:book_app/Core/widgets/custom_empty.dart';
 import 'package:book_app/Core/widgets/paginated_list_view.dart';
@@ -27,7 +26,7 @@ class BookListScreen extends StatelessWidget {
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(
-              horizontal: AppSizes.defaultHorizontalPadding),
+              horizontal: 16.r),
           child: Column(
             children: [
               SizedBox(height: 16.h),
@@ -53,14 +52,14 @@ class BookListScreen extends StatelessWidget {
                               child: PaginatedListView(
                                 itemCount: state.res.books.length,
                                 itemBuilder: (context, index) => Padding(
-                                  padding: EdgeInsets.only(bottom: 16.h),
+                                  padding: EdgeInsets.only(bottom: 16.r),
                                   child: BookItem(
                                     book: state.res.books[index],
                                   ),
                                 ),
                                 onLoadMore: () => cubit.getBooks(),
                                 hasReachedMax: !cubit.hasMore,
-                                valueKey: AppConstants.kBooksListPageKey,
+                                valueKey: AppConstants.kBooksListValueKey,
                               ),
                             );
                   }

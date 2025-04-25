@@ -13,7 +13,7 @@ class AuthorItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
+      padding: EdgeInsets.symmetric(horizontal: 10.r, vertical: 6.r),
       decoration: BoxDecoration(
         color: AppColors.of(context).card,
         borderRadius: BorderRadius.circular(6.r),

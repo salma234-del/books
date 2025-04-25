@@ -14,6 +14,7 @@ class SearchField extends StatelessWidget {
   Widget build(BuildContext context) {
     var cubit = context.read<GetBooksCubit>();
     return TextField(
+      style: AppTextStyles.of(context).font14Medium,
       decoration: InputDecoration(
         isDense: true,
         hintText: AppStrings.searchBooks,

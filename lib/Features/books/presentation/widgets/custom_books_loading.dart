@@ -19,7 +19,7 @@ class CustomBooksLoading extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           itemBuilder: (context, index) {
             return Padding(
-              padding: EdgeInsets.only(bottom: 16.h),
+              padding: EdgeInsets.only(bottom: 16.r),
               child: BookItem(
                 book: dummyBook,
               ),

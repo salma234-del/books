@@ -1,3 +1,3 @@
 abstract class AppConstants {
-  static const kBooksListPageKey = 'booksList';
+  static const kBooksListValueKey = 'booksList';
 }
