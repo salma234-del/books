@@ -42,7 +42,7 @@ class AppColors {
   );
 
   static AppColors of(BuildContext context) {
-    final isDark = false; // Will be replaced with actual theme check
+    final isDark = true; // Will be replaced with actual theme check
     // ignore: dead_code
     return isDark ? dark : light;
   }

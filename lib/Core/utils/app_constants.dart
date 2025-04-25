@@ -1,4 +1,3 @@
 abstract class AppConstants {
-  static const String kDefaultFontFamily = 'Outfit';
-  
+  static const String kDefaultFontFamily = 'Urbanist';
 }

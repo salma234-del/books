@@ -17,7 +17,7 @@ class BooksRepositoryImpl implements BaseBooksRepository {
     try {
       final result = await baseBooksRemoteDatasource.getBooks();
       if (result.isEmpty) {
-        return Left(ServerFailure(message: AppStrings.noBooksAvailable));
+        return Left(ServerFailure(message: AppStrings.noBooksFound));
       }
       return Right(result);
     } catch (e) {

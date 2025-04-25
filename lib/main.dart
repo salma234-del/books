@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(430, 932),
       child: MaterialApp(
-        theme: AppTheme.lightTheme(context),
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.darkTheme(context),
         home: BookListScreen(),
       ),
     );

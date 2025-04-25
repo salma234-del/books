@@ -10,5 +10,9 @@ abstract class AppStrings {
   static const String noInternet = "No internet connection.";
   static const String timeout = "Connection timeout. Try again.";
   static const String cancelled = "Request was cancelled.";
-  static const String noBooksAvailable = 'No books available';
+  // Define other strings
+  static const String appName = 'Books';
+  static const String seeMore = 'See more';
+  static const String seeLess = 'See less';
+  static const String noBooksFound = 'No books found';
 }
