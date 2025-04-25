@@ -1,29 +1,12 @@
 import 'package:book_app/Core/error/exceptions/dio_exception_mapper.dart';
 import 'package:book_app/Core/error/exceptions/server_exception.dart';
-import 'package:book_app/Core/network/remote/api_constants.dart';
 import 'package:book_app/Core/network/remote/error_message_model.dart';
 import 'package:dio/dio.dart';
 
 class ApiService {
-  final Dio _dio = Dio(
-    BaseOptions(
-      baseUrl: ApiConstants.kBaseUrl,
-      headers: {
-        'Content-Type': ApiConstants.kHeaderContentType,
-      },
-    ),
-  );
+  final Dio _dio;
 
-  ApiService() {
-    _dio.interceptors.add(
-      InterceptorsWrapper(
-        onError: (DioException e, handler) {
-          // Will use to refresh token
-          return handler.next(e);
-        },
-      ),
-    );
-  }
+  ApiService(this._dio);
 
   Future<Map<String, dynamic>> get({required String endPoint}) async {
     try {
