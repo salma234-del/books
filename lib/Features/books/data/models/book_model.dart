@@ -18,7 +18,7 @@ class BookModel extends Book {
           .map((e) => AuthorModel.fromJson(e))
           .toList(),
       summaries: List.from(json['summaries']).map((e) => e.toString()).toList(),
-      imageUrl: json['formats']['image/jpeg'],
+      imageUrl: json['formats']['image/jpeg'] ?? '',
     );
   }
 }

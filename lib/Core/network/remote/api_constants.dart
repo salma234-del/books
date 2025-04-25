@@ -6,4 +6,5 @@ abstract class ApiConstants {
   static const String kResultsKey = 'results';
   static const String kPageKey = 'page';
   static const String knextKey = 'next';
+  static const String kQueryKey = 'search';
 }

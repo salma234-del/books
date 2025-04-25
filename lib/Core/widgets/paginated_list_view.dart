@@ -5,7 +5,7 @@ class PaginatedListView extends StatefulWidget {
     required this.hasReachedMax,
     required this.onLoadMore,
     required this.itemBuilder,
-    required this.pageKey,
+    this.valueKey,
     required this.itemCount,
     super.key,
   });
@@ -13,7 +13,7 @@ class PaginatedListView extends StatefulWidget {
   final bool hasReachedMax;
   final Future<void> Function() onLoadMore;
   final Widget Function(BuildContext, int) itemBuilder;
-  final String pageKey;
+  final String? valueKey;
   final int itemCount;
 
   @override
@@ -58,7 +58,7 @@ class _PaginatedListViewState extends State<PaginatedListView> {
   Widget build(BuildContext context) {
     return ListView.builder(
       physics: const BouncingScrollPhysics(),
-      key: PageStorageKey(widget.pageKey),
+      key: ValueKey(widget.valueKey),
       controller: _scrollController,
       itemBuilder: widget.itemBuilder,
       itemCount: widget.itemCount,

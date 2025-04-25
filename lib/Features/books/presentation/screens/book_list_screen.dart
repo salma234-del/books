@@ -9,6 +9,7 @@ import 'package:book_app/Features/books/presentation/widgets/book_item.dart';
 import 'package:book_app/Features/books/presentation/widgets/custom_app_bar_title.dart';
 import 'package:book_app/Core/widgets/custom_error.dart';
 import 'package:book_app/Features/books/presentation/widgets/custom_books_loading.dart';
+import 'package:book_app/Features/books/presentation/widgets/search_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -29,16 +30,20 @@ class BookListScreen extends StatelessWidget {
               horizontal: AppSizes.defaultHorizontalPadding),
           child: Column(
             children: [
+              // search bar
+              SearchField(),
+              SizedBox(height: 24.h),
+              // books builder
               BlocBuilder<GetBooksCubit, GetBooksState>(
                 builder: (context, state) {
-                  var bloc = context.read<GetBooksCubit>();
+                  var cubit = context.read<GetBooksCubit>();
                   switch (state) {
                     case GetBooksLoading():
                       return CustomBooksLoading();
                     case GetBooksFailure():
                       return CustomError(
                         message: state.errorMessage,
-                        onRetry: () => context.read<GetBooksCubit>().getBooks(),
+                        onRetry: () => cubit.getBooks(),
                       );
                     case GetBooksSuccess():
                       return state.res.books.isEmpty
@@ -52,9 +57,9 @@ class BookListScreen extends StatelessWidget {
                                     book: state.res.books[index],
                                   ),
                                 ),
-                                onLoadMore: () async => await bloc.getBooks(),
-                                hasReachedMax: !bloc.hasMore,
-                                pageKey: AppConstants.kBooksListPageKey,
+                                onLoadMore: () => cubit.getBooks(),
+                                hasReachedMax: !cubit.hasMore,
+                                valueKey: AppConstants.kBooksListPageKey,
                               ),
                             );
                   }

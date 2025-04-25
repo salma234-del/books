@@ -15,13 +15,19 @@ class GetBooksCubit extends Cubit<GetBooksState> {
   bool hasMore = true;
   List<Book> books = [];
   bool _isLoading = false;
+  String? query;
 
   Future<void> getBooks() async {
     if (_isLoading || !hasMore) {
       return;
     } // Prevent multiple calls if already loading or no more pages
     _isLoading = true;
-    final result = await getBooksUsecase(currentPage);
+    final result = await getBooksUsecase(
+      GetBooksUsecaseParams(
+        page: currentPage,
+        query: query,
+      ),
+    );
     result.fold(
       (failure) => emit(GetBooksFailure(failure.message)),
       (res) {
@@ -34,5 +40,17 @@ class GetBooksCubit extends Cubit<GetBooksState> {
       },
     );
     _isLoading = false;
+  }
+
+  void searchBooks([String? search, bool refetchAll = false]) {
+    query = search?.trim();
+    if (query?.isEmpty ?? true && !refetchAll) {
+      return;
+    }
+    currentPage = 1;
+    hasMore = true;
+    books.clear();
+    emit(GetBooksLoading());
+    getBooks();
   }
 }
