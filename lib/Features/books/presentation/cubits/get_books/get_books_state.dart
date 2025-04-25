@@ -10,12 +10,12 @@ sealed class GetBooksState extends Equatable {
 final class GetBooksLoading extends GetBooksState {}
 
 final class GetBooksSuccess extends GetBooksState {
-  final List<Book> books;
+  final GetBooksResponse res;
 
-  const GetBooksSuccess(this.books);
+  const GetBooksSuccess(this.res);
 
   @override
-  List<Object> get props => [books];
+  List<Object> get props => [res];
 }
 
 final class GetBooksFailure extends GetBooksState {

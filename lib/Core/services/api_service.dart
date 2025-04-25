@@ -8,9 +8,13 @@ class ApiService {
 
   ApiService(this._dio);
 
-  Future<Map<String, dynamic>> get({required String endPoint}) async {
+  Future<Map<String, dynamic>> get(
+      {required String endPoint, Map<String, dynamic>? params}) async {
     try {
-      final response = await _dio.get(endPoint);
+      final response = await _dio.get(
+        endPoint,
+        queryParameters: params,
+      );
       return Map<String, dynamic>.from(response.data);
     } on DioException catch (e) {
       throw _handleDioError(e);

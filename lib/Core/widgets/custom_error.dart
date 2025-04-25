@@ -1,17 +1,17 @@
 import 'package:book_app/Core/global/theme/app_theme/app_colors.dart';
 import 'package:book_app/Core/global/theme/app_theme/app_text_styles.dart';
 import 'package:book_app/Core/utils/app_strings.dart';
-import 'package:book_app/Features/books/presentation/cubits/get_books/get_books_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomError extends StatelessWidget {
   final String message;
+  final VoidCallback onRetry;
 
   const CustomError({
     super.key,
     required this.message,
+    required this.onRetry,
   });
 
   @override
@@ -34,9 +34,7 @@ class CustomError extends StatelessWidget {
             ),
             SizedBox(height: 16.h),
             ElevatedButton.icon(
-              onPressed: () {
-                context.read<GetBooksCubit>().getBooks();
-              },
+              onPressed: onRetry,
               icon: Icon(Icons.refresh),
               label: Text(AppStrings.retry),
             ),

@@ -12,8 +12,8 @@ abstract class AppStrings {
   static const String cancelled = "Request was cancelled.";
   // Define other strings
   static const String appName = 'Books';
-  static const String seeMore = 'See more';
-  static const String seeLess = 'See less';
+  static const String seeMore = 'See More';
+  static const String seeLess = 'See Less';
   static const String noBooksFound = 'No books found';
   static const String retry = 'Retry';
 }

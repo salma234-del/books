@@ -1,23 +1,22 @@
 import 'package:book_app/Core/network/remote/api_constants.dart';
 import 'package:book_app/Core/services/api_service.dart';
 import 'package:book_app/Features/books/data/datasource/base_books_remote_datasource.dart';
-import 'package:book_app/Features/books/data/models/book_model.dart';
+import 'package:book_app/Features/books/data/models/get_books_response_model.dart';
 
 class BooksRemoteDatasource implements BaseBooksRemoteDatasource {
   final ApiService apiService;
   BooksRemoteDatasource(this.apiService);
-  // This method is used to get the books from the API
+  // This method is used to get the get books response from the API
   // It uses the ApiService to make the API call
   @override
-  Future<List<BookModel>> getBooks() async {
-    final response =
-        await apiService.get(endPoint: ApiConstants.kBooksEndPoint);
-    // The response is a list of books
-    // We need to convert it to a list of BookModel
-    List<BookModel> books = List.from(response['results'] as List)
-        .map((book) => BookModel.fromJson(book))
-        .toList();
+  Future<GetBooksResponseModel> getBooks(int page) async {
+    final response = await apiService.get(
+      endPoint: ApiConstants.kBooksEndPoint,
+      params: {
+        ApiConstants.kPageKey: page,
+      },
+    );
 
-    return books;
+    return GetBooksResponseModel.fromJson(response);
   }
 }
