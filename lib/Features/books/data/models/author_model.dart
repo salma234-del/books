@@ -8,4 +8,10 @@ class AuthorModel extends Author {
       name: json['name'],
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+    };
+  }
 }

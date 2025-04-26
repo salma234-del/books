@@ -21,4 +21,28 @@ class BookModel extends Book {
       imageUrl: json['formats']['image/jpeg'] ?? '',
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'title': title,
+      'authors': authors.map((e) => (e as AuthorModel).toJson()).toList(),
+      'summaries': summaries,
+      'formats': {
+        'image/jpeg': imageUrl,
+      },
+    };
+  }
+
+  // Convert from domain Book to BookModel
+  factory BookModel.fromBook(Book book) {
+    return BookModel(
+      id: book.id,
+      title: book.title,
+      authors: book.authors,
+      summaries: book.summaries,
+      imageUrl: book.imageUrl,
+    );
+  }
+
 }

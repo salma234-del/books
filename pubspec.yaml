@@ -46,6 +46,7 @@ dependencies:
   flutter_bloc: ^9.1.0
   bloc: ^9.0.0
   skeletonizer: ^1.4.3
+  shared_preferences: ^2.5.3
 
 dev_dependencies:
   flutter_test:

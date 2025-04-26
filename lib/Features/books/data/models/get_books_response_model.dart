@@ -19,4 +19,13 @@ class GetBooksResponseModel extends GetBooksResponse {
       ),
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'count': count,
+      'next': next,
+      'previous': previous,
+      'results': books.map((e) => (e as BookModel).toJson()).toList(),
+    };
+  }
 }
