@@ -7,6 +7,20 @@ A Flutter application that allows users to browse and search books from the [Pro
 
 You can watch the app demo [here](https://drive.google.com/file/d/1XoCZEhg21woi9rafQzih-j1sUnCNAOyY/view?usp=drivesdk).
 
+
+## Branches
+This project contains three branches:
+
+- **`main & caching`**: The main and caching branches that include the full code with **both caching and no caching functionality**. The app fetches and displays books from the API and also provides the option for offline caching.
+
+- **`book-list`**: This branch contains the **book list without caching**. It implements all the core features of the book list screen but does not use offline caching.
+
+To switch between branches:
+
+```bash
+git checkout <branch-name>
+```
+
 ---
 
 ## 🚀 Getting Started
